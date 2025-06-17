@@ -1,16 +1,22 @@
+{% load static %}
 <html> 
     <head> 
-        <title>Blog del profe Jorge</title>
+        <title>Hinchadas</title>
+        <link rel="stylesheet" href="{% static 'blog/estilos.css' %}">
     </head> 
     <body> 
         <div>
-            <h1> <a href="">AGUANTE BELGRANO</a></h1>
+            <h1>Hinchadas del futbol argentino</h1>
         </div>
         {% for publicacion in publicaciones %}
         <div>
-            <p> publicado: {{ publicacion.fecha_publicacion }}</p>
-            <h2><a href="">{{ publicacion.titulo }}</a></h2>
-            <p>{{ publicacion.texto|linebreaksbr }}</p>
+            <h2>{{ publicacion.titulo }}</h2>
+            <img src="{{ publicacion.imagen }}" alt="Imagen" width="200">
+            <p><strong>Introducción:</strong> {{ publicacion.introduccion }}</p>
+            <p><strong>Historia:</strong> {{ publicacion.historia }}</p>
+            <p><strong>Actualidad:</strong> {{ publicacion.actualidad }}</p>
+            <p><strong>Socios:</strong> {{ publicacion.socios }}</p>
+            <p><strong>Puntaje:</strong> {{ publicacion.puntaje }}</p>
             <hr>
         </div>
         {% endfor %}
